@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Uno {
+	
+	public static void main(String[] args) {
+
+//    Easy method 
+//		String A = "abc";
+//		String B = "abc";
+//		
+//		if(A.length() == B.length()) {
+//		String New = A+A;
+//		System.out.println(New);
+//		
+//		if(New.contains(B)) {
+//			System.out.println(New.indexOf(B));
+//		}
+//		
+//		}
+//		if(A.length() !=B.length()){
+//			System.out.println("-1");
+//		}
+
+// Actual Method
+		Scanner sc = new Scanner(System.in);
+		String s1 = sc.next();
+		String s2 = sc.next();
+		
+		System.out.println(solution(s1,s2));
+		
+				}
+	// 
+	public static int solution(String A, String B) 
+  {
+		int value =0;
+		if(A.equals(B)) 
+    {
+			return value;
+		}
+		char [] fA = A.toCharArray();
+		for(int i=0; i< fA.length;i++) 
+    {
+			char [] temp = new char[fA.length];
+			int count =i+1;
+			for(int j=0;j<fA.length;j++) 
+      {
+				if(count<fA.length) {
+					temp[j] = fA[count];
+					count+=1;
+					System.out.print(fA);
+				}
+				else {
+					temp[j] = fA[count-fA.length];
+					count+=1;
+				}
+			}
+			String newS = new String(temp);
+			if(newS.equals(B))
+			{
+				return i+1;
+			}
+	}
+		return -1;
+	}
+}
+
